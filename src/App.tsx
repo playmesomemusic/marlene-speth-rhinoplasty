@@ -31,7 +31,7 @@ const App = () => (
       <LanguageProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <HashRouter>
           <ScrollToTop />
           <Layout>
             <Routes>
