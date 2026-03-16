@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import InstagramFeed from "@/components/InstagramFeed";
 import drSpethPortrait from "@/assets/dr-speth-portrait.webp";
+import heroBg from "@/assets/hero-bg.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { general, homepage, procedureNames, procedureDescriptions } from "@/i18n/translations";
 
