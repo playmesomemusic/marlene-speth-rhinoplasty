@@ -33,7 +33,7 @@ const Index = () => {
       {/* Hero */}
       <section className="relative min-h-[85vh] flex items-center bg-primary overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroBg} alt="" className="w-full h-full object-cover opacity-10" />
+          <img src={heroBg} alt="" className="w-full h-full object-cover opacity-25" />
         </div>
         <div className="container mx-auto px-6 lg:px-8 relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <AnimatedSection>
