@@ -208,6 +208,33 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Homepage FAQ */}
+      <section className="py-20 lg:py-28 bg-section-alt">
+        <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
+          <AnimatedSection>
+            <h2 className="font-display text-3xl lg:text-4xl text-primary mb-10 text-center">
+              {t(homepage.homeFaqTitle)}
+            </h2>
+          </AnimatedSection>
+          <div className="space-y-6">
+            {[
+              { q: homepage.homeFaq1Q, a: homepage.homeFaq1A },
+              { q: homepage.homeFaq2Q, a: homepage.homeFaq2A },
+              { q: homepage.homeFaq3Q, a: homepage.homeFaq3A },
+              { q: homepage.homeFaq4Q, a: homepage.homeFaq4A },
+              { q: homepage.homeFaq5Q, a: homepage.homeFaq5A },
+            ].map((faq, i) => (
+              <AnimatedSection key={i} delay={i * 0.05}>
+                <div className="border-b border-border pb-6">
+                  <h3 className="font-display text-lg text-primary mb-2">{t(faq.q)}</h3>
+                  <p className="text-foreground/70 font-body text-sm leading-relaxed">{t(faq.a)}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Instagram */}
       <InstagramFeed />
 
