@@ -76,7 +76,24 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Philosophy */}
+      {/* Trust Badge Strip */}
+      <section className="bg-primary/95 border-t border-primary-foreground/10">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-primary-foreground/10">
+            {[
+              { icon: "🔬", label: t(homepage.trustSpecialist) },
+              { icon: "📋", label: t(homepage.trustExperience) },
+              { icon: "🎓", label: t(homepage.trustUniversity) },
+              { icon: "📍", label: t(homepage.trustMunich) },
+            ].map((badge) => (
+              <div key={badge.label} className="py-5 text-center">
+                <span className="text-lg mr-2">{badge.icon}</span>
+                <span className="text-primary-foreground/80 font-body text-sm">{badge.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
           <AnimatedSection>
