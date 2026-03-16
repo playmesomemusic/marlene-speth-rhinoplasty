@@ -43,9 +43,7 @@ const Index = () => {
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary-foreground font-semibold leading-tight mb-4">
               Dr. med.<br />Marlene Speth
             </h1>
-            <p className="text-primary-foreground/80 font-body text-base mb-2">
-              {t(homepage.heroDescription)}
-            </p>
+            <p className="text-primary-foreground/80 font-body text-base max-w-lg mb-10 leading-relaxed">
               {t(homepage.heroDescription)}
             </p>
             <div className="flex flex-wrap gap-4">
