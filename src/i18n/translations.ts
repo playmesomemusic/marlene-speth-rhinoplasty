@@ -168,6 +168,38 @@ export const surgeryLabels: Translations = {
   aftercare: { en: "Aftercare & Recovery Guidelines", de: "Nachsorge & Verhaltenshinweise" },
   aftercareCanDo: { en: "You can do immediately:", de: "Sie können sofort:" },
   aftercareAvoid: { en: "Please avoid:", de: "Bitte vermeiden Sie:" },
+  // Before/After gallery
+  beforeAfterTitle: { en: "Results & Expectations", de: "Ergebnisse & Erwartungen" },
+  beforeAfterText: {
+    en: "Every patient is unique, and results vary based on individual anatomy and healing. Dr. Speth is committed to achieving natural, balanced outcomes that respect each patient's facial harmony. A detailed discussion of realistic expectations is an essential part of every consultation.",
+    de: "Jeder Patient ist einzigartig, und die Ergebnisse variieren je nach individueller Anatomie und Heilungsverlauf. Dr. Speth ist bestrebt, natürliche, ausgewogene Ergebnisse zu erzielen, die die Gesichtsharmonie jedes Patienten respektieren. Eine ausführliche Besprechung realistischer Erwartungen ist ein wesentlicher Bestandteil jeder Beratung.",
+  },
+  beforeAfterPlaceholder: {
+    en: "Patient gallery coming soon. Contact us to see case examples during your consultation.",
+    de: "Patientengalerie demnächst verfügbar. Kontaktieren Sie uns, um Fallbeispiele während Ihrer Beratung zu sehen.",
+  },
+  // Consultation process
+  consultationTitle: { en: "Your Path to Treatment", de: "Ihr Weg zur Behandlung" },
+  consultStep1Title: { en: "Initial Consultation", de: "Erstberatung" },
+  consultStep1Text: {
+    en: "A thorough examination, discussion of your concerns, and review of your medical history.",
+    de: "Eine gründliche Untersuchung, Besprechung Ihrer Anliegen und Überprüfung Ihrer Krankengeschichte.",
+  },
+  consultStep2Title: { en: "Personalised Planning", de: "Individuelle Planung" },
+  consultStep2Text: {
+    en: "Imaging, facial analysis, and a tailored surgical plan aligned with your goals.",
+    de: "Bildgebung, Gesichtsanalyse und ein maßgeschneiderter Operationsplan entsprechend Ihrer Ziele.",
+  },
+  consultStep3Title: { en: "The Procedure", de: "Der Eingriff" },
+  consultStep3Text: {
+    en: "Surgery performed with precision in a modern clinical setting under specialist care.",
+    de: "Durchführung des Eingriffs mit Präzision in einem modernen klinischen Umfeld unter fachärztlicher Betreuung.",
+  },
+  consultStep4Title: { en: "Recovery & Follow-up", de: "Erholung & Nachsorge" },
+  consultStep4Text: {
+    en: "Structured aftercare with regular follow-up appointments to ensure optimal healing.",
+    de: "Strukturierte Nachsorge mit regelmäßigen Kontrollterminen für eine optimale Heilung.",
+  },
 };
 
 // ─── ABOUT PAGE ─────────────────────────────────────────────────────
