@@ -175,13 +175,13 @@ const SurgeryPageTemplate = ({ surgeryKey, data }: Props) => {
             <AnimatedSection delay={0.05}>
               <div className="bg-card border border-border rounded-sm p-6">
                 <h3 className="font-display text-lg text-primary mb-4 flex items-center gap-2">
-                  <Check className="text-green-600" size={20} />
+                  <Check className="text-accent" size={20} />
                   {t(surgeryLabels.aftercareCanDo)}
                 </h3>
                 <ul className="space-y-3">
                   {aftercareDo.map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
-                      <Check className="text-green-600 mt-0.5 flex-shrink-0" size={14} />
+                      <Check className="text-accent mt-0.5 flex-shrink-0" size={14} />
                       <span className="text-foreground/70 font-body text-sm">{item}</span>
                     </li>
                   ))}
@@ -191,7 +191,7 @@ const SurgeryPageTemplate = ({ surgeryKey, data }: Props) => {
             <AnimatedSection delay={0.1}>
               <div className="bg-card border border-border rounded-sm p-6">
                 <h3 className="font-display text-lg text-primary mb-4 flex items-center gap-2">
-                  <AlertTriangle className="text-accent" size={20} />
+                  <AlertTriangle className="text-destructive" size={20} />
                   {t(surgeryLabels.aftercareAvoid)}
                 </h3>
                 <ul className="space-y-3">
