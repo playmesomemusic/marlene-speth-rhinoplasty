@@ -40,10 +40,12 @@ const Index = () => {
             <p className="text-gold text-sm tracking-[0.2em] uppercase font-body mb-6">
               {t(homepage.heroTagline)}
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary-foreground font-semibold leading-tight mb-6">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary-foreground font-semibold leading-tight mb-4">
               Dr. med.<br />Marlene Speth
             </h1>
-            <p className="text-primary-foreground/70 font-body text-lg max-w-lg mb-10 leading-relaxed">
+            <p className="text-primary-foreground/80 font-body text-base mb-2">
+              {t(homepage.heroDescription)}
+            </p>
               {t(homepage.heroDescription)}
             </p>
             <div className="flex flex-wrap gap-4">
