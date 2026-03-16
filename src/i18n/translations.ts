@@ -83,6 +83,38 @@ export const homepage: Translations = {
     de: "Aktuelle Neuigkeiten aus der Praxis",
   },
   viewOnInstagram: { en: "View on Instagram", de: "Auf Instagram ansehen" },
+  // Trust badges
+  trustSpecialist: { en: "Rhinology Specialist", de: "Rhinologie-Spezialistin" },
+  trustExperience: { en: "15+ Years Experience", de: "15+ Jahre Erfahrung" },
+  trustUniversity: { en: "University-trained Surgeon", de: "Universitär ausgebildete Chirurgin" },
+  trustMunich: { en: "Based in Munich", de: "Standort München" },
+  // Homepage FAQ
+  homeFaqTitle: { en: "Frequently Asked Questions", de: "Häufig gestellte Fragen" },
+  homeFaq1Q: { en: "What is the difference between functional and cosmetic rhinoplasty?", de: "Was ist der Unterschied zwischen funktioneller und kosmetischer Rhinoplastik?" },
+  homeFaq1A: {
+    en: "Functional rhinoplasty focuses on improving nasal breathing by correcting structural issues such as a deviated septum or enlarged turbinates. Cosmetic rhinoplasty addresses the external appearance of the nose. In many cases, both can be combined in a single procedure.",
+    de: "Funktionelle Rhinoplastik konzentriert sich auf die Verbesserung der Nasenatmung durch Korrektur struktureller Probleme wie einer Nasenscheidewandverkrümmung oder vergrößerter Nasenmuscheln. Kosmetische Rhinoplastik behandelt das äußere Erscheinungsbild der Nase. In vielen Fällen können beide in einem einzigen Eingriff kombiniert werden.",
+  },
+  homeFaq2Q: { en: "How long does recovery take after nasal surgery?", de: "Wie lange dauert die Erholung nach einer Nasenoperation?" },
+  homeFaq2A: {
+    en: "Most patients can return to desk work within 1–2 weeks. Swelling gradually subsides over several months, with final results typically visible after 12–18 months. Dr. Speth will provide a personalised recovery timeline during your consultation.",
+    de: "Die meisten Patienten können innerhalb von 1–2 Wochen an einen Schreibtischarbeitsplatz zurückkehren. Schwellungen klingen über mehrere Monate hinweg ab, die endgültigen Ergebnisse sind in der Regel nach 12–18 Monaten sichtbar. Dr. Speth erstellt Ihnen einen individuellen Erholungsplan während der Beratung.",
+  },
+  homeFaq3Q: { en: "Can rhinoplasty improve my breathing?", de: "Kann eine Rhinoplastik meine Atmung verbessern?" },
+  homeFaq3A: {
+    en: "Yes. Many patients who undergo rhinoplasty experience significant improvement in nasal airflow, particularly when the procedure addresses a deviated septum, nasal valve collapse, or enlarged turbinates.",
+    de: "Ja. Viele Patienten, die sich einer Rhinoplastik unterziehen, erfahren eine deutliche Verbesserung des Luftstroms durch die Nase, insbesondere wenn der Eingriff eine Nasenscheidewandverkrümmung, einen Nasenklappendefekt oder vergrößerte Nasenmuscheln behandelt.",
+  },
+  homeFaq4Q: { en: "What should I expect during a consultation?", de: "Was erwartet mich bei einer Beratung?" },
+  homeFaq4A: {
+    en: "During your consultation, Dr. Speth will perform a thorough examination, discuss your concerns and goals, review imaging if needed, and explain treatment options including expected outcomes and recovery. There is no obligation to proceed.",
+    de: "Während Ihrer Beratung führt Dr. Speth eine gründliche Untersuchung durch, bespricht Ihre Anliegen und Ziele, überprüft bei Bedarf Bildgebungen und erläutert Behandlungsoptionen einschließlich erwarteter Ergebnisse und Erholung. Es besteht keine Verpflichtung, fortzufahren.",
+  },
+  homeFaq5Q: { en: "How much does rhinoplasty cost in Munich?", de: "Wie viel kostet eine Rhinoplastik in München?" },
+  homeFaq5A: {
+    en: "Costs vary depending on the complexity of the procedure. Dr. Speth will provide a detailed cost estimate after your consultation, once the scope of surgery has been determined. Both private insurance and self-pay options are available.",
+    de: "Die Kosten variieren je nach Komplexität des Eingriffs. Dr. Speth erstellt Ihnen einen detaillierten Kostenvoranschlag nach Ihrer Beratung, sobald der Umfang der Operation festgelegt wurde. Sowohl Privatversicherung als auch Selbstzahler-Optionen sind verfügbar.",
+  },
 };
 
 // ─── PROCEDURE CARD DESCRIPTIONS (homepage grid) ────────────────────
@@ -136,6 +168,38 @@ export const surgeryLabels: Translations = {
   aftercare: { en: "Aftercare & Recovery Guidelines", de: "Nachsorge & Verhaltenshinweise" },
   aftercareCanDo: { en: "You can do immediately:", de: "Sie können sofort:" },
   aftercareAvoid: { en: "Please avoid:", de: "Bitte vermeiden Sie:" },
+  // Before/After gallery
+  beforeAfterTitle: { en: "Results & Expectations", de: "Ergebnisse & Erwartungen" },
+  beforeAfterText: {
+    en: "Every patient is unique, and results vary based on individual anatomy and healing. Dr. Speth is committed to achieving natural, balanced outcomes that respect each patient's facial harmony. A detailed discussion of realistic expectations is an essential part of every consultation.",
+    de: "Jeder Patient ist einzigartig, und die Ergebnisse variieren je nach individueller Anatomie und Heilungsverlauf. Dr. Speth ist bestrebt, natürliche, ausgewogene Ergebnisse zu erzielen, die die Gesichtsharmonie jedes Patienten respektieren. Eine ausführliche Besprechung realistischer Erwartungen ist ein wesentlicher Bestandteil jeder Beratung.",
+  },
+  beforeAfterPlaceholder: {
+    en: "Patient gallery coming soon. Contact us to see case examples during your consultation.",
+    de: "Patientengalerie demnächst verfügbar. Kontaktieren Sie uns, um Fallbeispiele während Ihrer Beratung zu sehen.",
+  },
+  // Consultation process
+  consultationTitle: { en: "Your Path to Treatment", de: "Ihr Weg zur Behandlung" },
+  consultStep1Title: { en: "Initial Consultation", de: "Erstberatung" },
+  consultStep1Text: {
+    en: "A thorough examination, discussion of your concerns, and review of your medical history.",
+    de: "Eine gründliche Untersuchung, Besprechung Ihrer Anliegen und Überprüfung Ihrer Krankengeschichte.",
+  },
+  consultStep2Title: { en: "Personalised Planning", de: "Individuelle Planung" },
+  consultStep2Text: {
+    en: "Imaging, facial analysis, and a tailored surgical plan aligned with your goals.",
+    de: "Bildgebung, Gesichtsanalyse und ein maßgeschneiderter Operationsplan entsprechend Ihrer Ziele.",
+  },
+  consultStep3Title: { en: "The Procedure", de: "Der Eingriff" },
+  consultStep3Text: {
+    en: "Surgery performed with precision in a modern clinical setting under specialist care.",
+    de: "Durchführung des Eingriffs mit Präzision in einem modernen klinischen Umfeld unter fachärztlicher Betreuung.",
+  },
+  consultStep4Title: { en: "Recovery & Follow-up", de: "Erholung & Nachsorge" },
+  consultStep4Text: {
+    en: "Structured aftercare with regular follow-up appointments to ensure optimal healing.",
+    de: "Strukturierte Nachsorge mit regelmäßigen Kontrollterminen für eine optimale Heilung.",
+  },
 };
 
 // ─── ABOUT PAGE ─────────────────────────────────────────────────────

@@ -2,7 +2,7 @@ import AnimatedSection from "./AnimatedSection";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { surgeryLabels, general, type SurgeryContent } from "@/i18n/translations";
-import { Check, AlertTriangle } from "lucide-react";
+import { Check, AlertTriangle, ImageIcon, ClipboardList, Stethoscope, HeartPulse, CalendarCheck } from "lucide-react";
 
 // Procedure images
 import septorhinoplastyImg from "@/assets/procedures/septorhinoplasty.jpg";
@@ -162,6 +162,57 @@ const SurgeryPageTemplate = ({ surgeryKey, data }: Props) => {
             <h2 className="font-display text-3xl text-primary mb-6">{t(surgeryLabels.results)}</h2>
             <p className="text-foreground/80 font-body leading-relaxed">{results}</p>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Before/After Gallery Placeholder */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
+          <AnimatedSection>
+            <h2 className="font-display text-3xl text-primary mb-6">{t(surgeryLabels.beforeAfterTitle)}</h2>
+            <p className="text-foreground/80 font-body leading-relaxed mb-8">{t(surgeryLabels.beforeAfterText)}</p>
+          </AnimatedSection>
+          <AnimatedSection delay={0.1}>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="aspect-[3/4] bg-muted rounded-sm flex flex-col items-center justify-center border border-border">
+                  <ImageIcon className="text-muted-foreground mb-2" size={32} />
+                  <span className="text-muted-foreground font-body text-xs">Coming soon</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-muted-foreground font-body text-sm mt-4 text-center italic">
+              {t(surgeryLabels.beforeAfterPlaceholder)}
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Consultation Process */}
+      <section className="py-16 lg:py-24 bg-section-alt">
+        <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
+          <AnimatedSection>
+            <h2 className="font-display text-3xl text-primary mb-12 text-center">{t(surgeryLabels.consultationTitle)}</h2>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {[
+              { icon: ClipboardList, title: t(surgeryLabels.consultStep1Title), text: t(surgeryLabels.consultStep1Text) },
+              { icon: Stethoscope, title: t(surgeryLabels.consultStep2Title), text: t(surgeryLabels.consultStep2Text) },
+              { icon: HeartPulse, title: t(surgeryLabels.consultStep3Title), text: t(surgeryLabels.consultStep3Text) },
+              { icon: CalendarCheck, title: t(surgeryLabels.consultStep4Title), text: t(surgeryLabels.consultStep4Text) },
+            ].map((step, i) => (
+              <AnimatedSection key={i} delay={i * 0.1}>
+                <div className="text-center">
+                  <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                    <step.icon className="text-accent" size={24} />
+                  </div>
+                  <div className="font-display text-sm text-accent mb-1">0{i + 1}</div>
+                  <h3 className="font-display text-lg text-primary mb-2">{step.title}</h3>
+                  <p className="text-foreground/70 font-body text-sm leading-relaxed">{step.text}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 

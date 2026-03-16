@@ -40,10 +40,10 @@ const Index = () => {
             <p className="text-gold text-sm tracking-[0.2em] uppercase font-body mb-6">
               {t(homepage.heroTagline)}
             </p>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary-foreground font-semibold leading-tight mb-6">
+            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary-foreground font-semibold leading-tight mb-4">
               Dr. med.<br />Marlene Speth
             </h1>
-            <p className="text-primary-foreground/70 font-body text-lg max-w-lg mb-10 leading-relaxed">
+            <p className="text-primary-foreground/80 font-body text-base max-w-lg mb-10 leading-relaxed">
               {t(homepage.heroDescription)}
             </p>
             <div className="flex flex-wrap gap-4">
@@ -74,7 +74,24 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Philosophy */}
+      {/* Trust Badge Strip */}
+      <section className="bg-primary/95 border-t border-primary-foreground/10">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-primary-foreground/10">
+            {[
+              { icon: "🔬", label: t(homepage.trustSpecialist) },
+              { icon: "📋", label: t(homepage.trustExperience) },
+              { icon: "🎓", label: t(homepage.trustUniversity) },
+              { icon: "📍", label: t(homepage.trustMunich) },
+            ].map((badge) => (
+              <div key={badge.label} className="py-5 text-center">
+                <span className="text-lg mr-2">{badge.icon}</span>
+                <span className="text-primary-foreground/80 font-body text-sm">{badge.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
           <AnimatedSection>
@@ -187,6 +204,33 @@ const Index = () => {
                 ))}
               </div>
             </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Homepage FAQ */}
+      <section className="py-20 lg:py-28 bg-section-alt">
+        <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
+          <AnimatedSection>
+            <h2 className="font-display text-3xl lg:text-4xl text-primary mb-10 text-center">
+              {t(homepage.homeFaqTitle)}
+            </h2>
+          </AnimatedSection>
+          <div className="space-y-6">
+            {[
+              { q: homepage.homeFaq1Q, a: homepage.homeFaq1A },
+              { q: homepage.homeFaq2Q, a: homepage.homeFaq2A },
+              { q: homepage.homeFaq3Q, a: homepage.homeFaq3A },
+              { q: homepage.homeFaq4Q, a: homepage.homeFaq4A },
+              { q: homepage.homeFaq5Q, a: homepage.homeFaq5A },
+            ].map((faq, i) => (
+              <AnimatedSection key={i} delay={i * 0.05}>
+                <div className="border-b border-border pb-6">
+                  <h3 className="font-display text-lg text-primary mb-2">{t(faq.q)}</h3>
+                  <p className="text-foreground/70 font-body text-sm leading-relaxed">{t(faq.a)}</p>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
         </div>
       </section>
