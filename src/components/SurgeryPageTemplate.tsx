@@ -1,42 +1,63 @@
 import AnimatedSection from "./AnimatedSection";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { surgeryLabels, general, type SurgeryContent } from "@/i18n/translations";
+import { Check, AlertTriangle } from "lucide-react";
 
-interface TimelineStep {
-  title: string;
-  description: string;
+// Procedure images
+import septorhinoplastyImg from "@/assets/procedures/septorhinoplasty.jpg";
+import septoplastyImg from "@/assets/procedures/septoplasty.jpg";
+import sinusSurgeryImg from "@/assets/procedures/sinus-surgery.jpg";
+import turbinateSurgeryImg from "@/assets/procedures/turbinate-surgery.jpg";
+import skullBaseImg from "@/assets/procedures/skull-base.jpg";
+import revisionCasesImg from "@/assets/procedures/revision-cases.jpg";
+import furtherEntImg from "@/assets/procedures/further-ent.jpg";
+
+const procedureImages: Record<string, string> = {
+  septorhinoplasty: septorhinoplastyImg,
+  septoplasty: septoplastyImg,
+  sinusSurgery: sinusSurgeryImg,
+  turbinateSurgery: turbinateSurgeryImg,
+  skullBase: skullBaseImg,
+  revisionCases: revisionCasesImg,
+  furtherENT: furtherEntImg,
+};
+
+interface Props {
+  surgeryKey: string;
+  data: SurgeryContent;
 }
 
-interface FAQItem {
-  question: string;
-  answer: string;
-}
+const SurgeryPageTemplate = ({ surgeryKey, data }: Props) => {
+  const { t } = useLanguage();
+  const image = procedureImages[surgeryKey];
+  const title = t(data.title);
+  const subtitle = t(data.subtitle);
+  const overview = t(data.overview);
+  const procedure = t(data.procedure);
+  const indications = t(data.indications) as string[];
+  const diagnostics = t(data.diagnostics) as string[];
+  const results = t(data.results) as string;
+  const aftercareDo = t(data.aftercareDo) as string[];
+  const aftercareAvoid = t(data.aftercareAvoid) as string[];
+  const timeline = t(data.timeline) as { title: string; description: string }[];
+  const recovery = t(data.recovery) as string;
+  const faqs = t(data.faqs) as { question: string; answer: string }[];
 
-interface SurgeryPageProps {
-  title: string;
-  subtitle: string;
-  overview: string;
-  procedure: string;
-  timeline: TimelineStep[];
-  recovery: string;
-  faqs: FAQItem[];
-}
-
-const SurgeryPageTemplate = ({
-  title,
-  subtitle,
-  overview,
-  procedure,
-  timeline,
-  recovery,
-  faqs,
-}: SurgeryPageProps) => {
   return (
     <div className="pt-24">
-      {/* Hero */}
-      <section className="bg-primary py-20 lg:py-28">
-        <div className="container mx-auto px-6 lg:px-8">
+      {/* Hero with image */}
+      <section className="relative bg-primary py-20 lg:py-28 overflow-hidden">
+        {image && (
+          <div className="absolute inset-0">
+            <img src={image} alt={title} className="w-full h-full object-cover opacity-15" />
+          </div>
+        )}
+        <div className="container mx-auto px-6 lg:px-8 relative">
           <AnimatedSection>
-            <p className="text-gold text-sm tracking-[0.2em] uppercase font-body mb-4">Procedure</p>
+            <p className="text-gold text-sm tracking-[0.2em] uppercase font-body mb-4">
+              {t(general.procedure)}
+            </p>
             <h1 className="font-display text-4xl lg:text-5xl text-primary-foreground font-semibold mb-4">
               {title}
             </h1>
@@ -45,12 +66,56 @@ const SurgeryPageTemplate = ({
         </div>
       </section>
 
-      {/* Overview */}
+      {/* Overview + Image side by side */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <AnimatedSection>
+              <h2 className="font-display text-3xl text-primary mb-6">{t(surgeryLabels.overview)}</h2>
+              <p className="text-foreground/80 font-body leading-relaxed">{overview}</p>
+            </AnimatedSection>
+            {image && (
+              <AnimatedSection delay={0.15}>
+                <img src={image} alt={title} className="w-full h-72 lg:h-80 object-cover rounded-sm shadow-md" />
+              </AnimatedSection>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* Indications & Symptoms */}
+      <section className="py-16 lg:py-24 bg-section-alt">
+        <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
+          <AnimatedSection>
+            <h2 className="font-display text-3xl text-primary mb-3">{t(surgeryLabels.indications)}</h2>
+            <p className="text-foreground/60 font-body mb-8">{t(surgeryLabels.indicationsIntro)}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {indications.map((item, i) => (
+                <div key={i} className="flex items-start gap-3 bg-card p-4 rounded-sm border border-border">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                  <span className="text-foreground/80 font-body text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Diagnostics */}
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
           <AnimatedSection>
-            <h2 className="font-display text-3xl text-primary mb-6">Overview</h2>
-            <p className="text-foreground/80 font-body leading-relaxed">{overview}</p>
+            <h2 className="font-display text-3xl text-primary mb-8">{t(surgeryLabels.diagnostics)}</h2>
+            <div className="space-y-4">
+              {diagnostics.map((item, i) => (
+                <div key={i} className="flex items-start gap-4">
+                  <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-accent font-body text-sm font-semibold">{i + 1}</span>
+                  </div>
+                  <p className="text-foreground/80 font-body leading-relaxed pt-1">{item}</p>
+                </div>
+              ))}
+            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -59,7 +124,7 @@ const SurgeryPageTemplate = ({
       <section className="py-16 lg:py-24 bg-section-alt">
         <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
           <AnimatedSection>
-            <h2 className="font-display text-3xl text-primary mb-6">The Procedure</h2>
+            <h2 className="font-display text-3xl text-primary mb-6">{t(surgeryLabels.theProcedure)}</h2>
             <p className="text-foreground/80 font-body leading-relaxed">{procedure}</p>
           </AnimatedSection>
         </div>
@@ -69,7 +134,7 @@ const SurgeryPageTemplate = ({
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
           <AnimatedSection>
-            <h2 className="font-display text-3xl text-primary mb-10">What to Expect</h2>
+            <h2 className="font-display text-3xl text-primary mb-10">{t(surgeryLabels.whatToExpect)}</h2>
           </AnimatedSection>
           <div className="space-y-0">
             {timeline.map((step, i) => (
@@ -90,11 +155,64 @@ const SurgeryPageTemplate = ({
         </div>
       </section>
 
+      {/* Expected Results */}
+      <section className="py-16 lg:py-24 bg-section-alt">
+        <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
+          <AnimatedSection>
+            <h2 className="font-display text-3xl text-primary mb-6">{t(surgeryLabels.results)}</h2>
+            <p className="text-foreground/80 font-body leading-relaxed">{results}</p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Aftercare */}
+      <section className="py-16 lg:py-24">
+        <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
+          <AnimatedSection>
+            <h2 className="font-display text-3xl text-primary mb-10">{t(surgeryLabels.aftercare)}</h2>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <AnimatedSection delay={0.05}>
+              <div className="bg-card border border-border rounded-sm p-6">
+                <h3 className="font-display text-lg text-primary mb-4 flex items-center gap-2">
+                  <Check className="text-green-600" size={20} />
+                  {t(surgeryLabels.aftercareCanDo)}
+                </h3>
+                <ul className="space-y-3">
+                  {aftercareDo.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <Check className="text-green-600 mt-0.5 flex-shrink-0" size={14} />
+                      <span className="text-foreground/70 font-body text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.1}>
+              <div className="bg-card border border-border rounded-sm p-6">
+                <h3 className="font-display text-lg text-primary mb-4 flex items-center gap-2">
+                  <AlertTriangle className="text-accent" size={20} />
+                  {t(surgeryLabels.aftercareAvoid)}
+                </h3>
+                <ul className="space-y-3">
+                  {aftercareAvoid.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <AlertTriangle className="text-accent mt-0.5 flex-shrink-0" size={14} />
+                      <span className="text-foreground/70 font-body text-sm">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* Recovery */}
       <section className="py-16 lg:py-24 bg-section-alt">
         <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
           <AnimatedSection>
-            <h2 className="font-display text-3xl text-primary mb-6">Recovery</h2>
+            <h2 className="font-display text-3xl text-primary mb-6">{t(surgeryLabels.recovery)}</h2>
             <p className="text-foreground/80 font-body leading-relaxed">{recovery}</p>
           </AnimatedSection>
         </div>
@@ -104,7 +222,7 @@ const SurgeryPageTemplate = ({
       <section className="py-16 lg:py-24">
         <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
           <AnimatedSection>
-            <h2 className="font-display text-3xl text-primary mb-10">Frequently Asked Questions</h2>
+            <h2 className="font-display text-3xl text-primary mb-10">{t(surgeryLabels.faq)}</h2>
           </AnimatedSection>
           <div className="space-y-6">
             {faqs.map((faq, i) => (
@@ -123,15 +241,15 @@ const SurgeryPageTemplate = ({
       <section className="py-16 lg:py-24 bg-primary">
         <div className="container mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <h2 className="font-display text-3xl text-primary-foreground mb-4">Ready to Take the Next Step?</h2>
+            <h2 className="font-display text-3xl text-primary-foreground mb-4">{t(surgeryLabels.ctaTitle)}</h2>
             <p className="text-primary-foreground/70 font-body mb-8 max-w-xl mx-auto">
-              Schedule a personal consultation with Dr. Speth to discuss your individual needs and treatment options.
+              {t(surgeryLabels.ctaText)}
             </p>
             <Link
               to="/contact"
               className="inline-block px-8 py-3 bg-accent text-accent-foreground font-body font-medium rounded-sm hover:bg-accent/90 transition-colors"
             >
-              Book a Consultation
+              {t(general.bookAConsultation)}
             </Link>
           </AnimatedSection>
         </div>

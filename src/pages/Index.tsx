@@ -1,17 +1,32 @@
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
+import InstagramFeed from "@/components/InstagramFeed";
 import drSpethPortrait from "@/assets/dr-speth-portrait.webp";
+import { useLanguage } from "@/i18n/LanguageContext";
+import { general, homepage, procedureNames, procedureDescriptions } from "@/i18n/translations";
+
+// Procedure images
+import septorhinoplastyImg from "@/assets/procedures/septorhinoplasty.jpg";
+import septoplastyImg from "@/assets/procedures/septoplasty.jpg";
+import sinusSurgeryImg from "@/assets/procedures/sinus-surgery.jpg";
+import turbinateSurgeryImg from "@/assets/procedures/turbinate-surgery.jpg";
+import skullBaseImg from "@/assets/procedures/skull-base.jpg";
+import revisionCasesImg from "@/assets/procedures/revision-cases.jpg";
+import furtherEntImg from "@/assets/procedures/further-ent.jpg";
 
 const procedures = [
-  { title: "Septorhinoplasty", description: "Functional and aesthetic nasal surgery for balanced, long-term results.", path: "/septorhinoplasty" },
-  { title: "Septoplasty", description: "Correction of the deviated nasal septum to restore nasal breathing.", path: "/septoplasty" },
-  { title: "Sinus Surgery", description: "Endoscopic surgery for chronic sinusitis and complex sinus conditions.", path: "/sinus-surgery" },
-  { title: "Turbinate Surgery", description: "Reduction of enlarged turbinates to improve nasal airflow.", path: "/turbinate-surgery" },
-  { title: "Skull Base Surgery", description: "Advanced surgical management of skull base pathologies.", path: "/skull-base" },
-  { title: "Revision Cases", description: "Complex revision surgery for patients with prior nasal procedures.", path: "/revision-cases" },
+  { key: "septorhinoplasty", path: "/septorhinoplasty", image: septorhinoplastyImg },
+  { key: "septoplasty", path: "/septoplasty", image: septoplastyImg },
+  { key: "sinusSurgery", path: "/sinus-surgery", image: sinusSurgeryImg },
+  { key: "turbinateSurgery", path: "/turbinate-surgery", image: turbinateSurgeryImg },
+  { key: "skullBase", path: "/skull-base", image: skullBaseImg },
+  { key: "revisionCases", path: "/revision-cases", image: revisionCasesImg },
+  { key: "furtherENT", path: "/further-ent", image: furtherEntImg },
 ];
 
 const Index = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-20">
       {/* Hero */}
@@ -19,27 +34,26 @@ const Index = () => {
         <div className="container mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <AnimatedSection>
             <p className="text-gold text-sm tracking-[0.2em] uppercase font-body mb-6">
-              Rhinology · Facial Plastic Surgery · Munich
+              {t(homepage.heroTagline)}
             </p>
             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl text-primary-foreground font-semibold leading-tight mb-6">
               Dr. med.<br />Marlene Speth
             </h1>
             <p className="text-primary-foreground/70 font-body text-lg max-w-lg mb-10 leading-relaxed">
-              Consultant ENT Surgeon at the Technical University of Munich, 
-              specialising in rhinoplasty, revision nasal surgery, and complex rhinological conditions.
+              {t(homepage.heroDescription)}
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
                 to="/contact"
                 className="px-8 py-3.5 bg-accent text-accent-foreground font-body font-medium text-sm rounded-sm hover:bg-accent/90 transition-colors"
               >
-                Book a Consultation
+                {t(general.bookAConsultation)}
               </Link>
               <Link
                 to="/about"
                 className="px-8 py-3.5 border border-primary-foreground/30 text-primary-foreground font-body font-medium text-sm rounded-sm hover:border-primary-foreground/60 transition-colors"
               >
-                Academic Profile
+                {t(homepage.academicProfile)}
               </Link>
             </div>
           </AnimatedSection>
@@ -56,47 +70,83 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Intro / Philosophy */}
+      {/* Philosophy */}
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-6 lg:px-8 max-w-4xl text-center">
           <AnimatedSection>
             <div className="w-12 h-px bg-accent mx-auto mb-8" />
             <h2 className="font-display text-3xl lg:text-4xl text-primary mb-6">
-              Precision Meets Aesthetics
+              {t(homepage.philosophyTitle)}
             </h2>
             <p className="text-foreground/70 font-body text-lg leading-relaxed max-w-2xl mx-auto">
-              With a subspecialty focus on rhinology and facial plastic surgery, Dr. Speth combines 
-              meticulous surgical technique with an understanding of facial harmony. Every procedure 
-              is approached with the goal of achieving balanced, natural, and long-lasting results — 
-              whether functional, cosmetic, or both.
+              {t(homepage.philosophyText)}
             </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Procedures Grid */}
+      {/* Procedures Grid — visual cards with images */}
       <section className="py-20 lg:py-28 bg-section-alt">
         <div className="container mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <p className="text-gold text-sm tracking-[0.2em] uppercase font-body mb-4">Expertise</p>
-              <h2 className="font-display text-3xl lg:text-4xl text-primary">Procedures</h2>
+              <p className="text-gold text-sm tracking-[0.2em] uppercase font-body mb-4">{t(homepage.expertiseLabel)}</p>
+              <h2 className="font-display text-3xl lg:text-4xl text-primary">{t(homepage.proceduresTitle)}</h2>
             </div>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {procedures.map((proc, i) => (
+
+          {/* Featured large cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            {procedures.slice(0, 2).map((proc, i) => (
               <AnimatedSection key={proc.path} delay={i * 0.08}>
                 <Link
                   to={proc.path}
-                  className="block bg-card p-8 border border-border rounded-sm hover:border-accent/40 hover:shadow-lg transition-all duration-300 group h-full"
+                  className="block relative h-80 rounded-sm overflow-hidden group"
                 >
-                  <h3 className="font-display text-xl text-primary mb-3 group-hover:text-accent transition-colors">
-                    {proc.title}
-                  </h3>
-                  <p className="text-foreground/60 font-body text-sm leading-relaxed">{proc.description}</p>
-                  <span className="inline-block mt-4 text-accent text-sm font-body font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    Learn more →
-                  </span>
+                  <img
+                    src={proc.image}
+                    alt={t(procedureNames[proc.key])}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="font-display text-2xl text-primary-foreground mb-2">
+                      {t(procedureNames[proc.key])}
+                    </h3>
+                    <p className="text-primary-foreground/70 font-body text-sm leading-relaxed">
+                      {t(procedureDescriptions[proc.key])}
+                    </p>
+                    <span className="inline-block mt-3 text-gold text-sm font-body font-medium">
+                      {t(general.learnMore)}
+                    </span>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          {/* Smaller grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {procedures.slice(2).map((proc, i) => (
+              <AnimatedSection key={proc.path} delay={(i + 2) * 0.08}>
+                <Link
+                  to={proc.path}
+                  className="block relative h-64 rounded-sm overflow-hidden group"
+                >
+                  <img
+                    src={proc.image}
+                    alt={t(procedureNames[proc.key])}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/50 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <h3 className="font-display text-lg text-primary-foreground mb-1">
+                      {t(procedureNames[proc.key])}
+                    </h3>
+                    <span className="text-gold text-xs font-body font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                      {t(general.learnMore)}
+                    </span>
+                  </div>
                 </Link>
               </AnimatedSection>
             ))}
@@ -109,21 +159,19 @@ const Index = () => {
         <div className="container mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
-              <p className="text-gold text-sm tracking-[0.2em] uppercase font-body mb-4">Credentials</p>
-              <h2 className="font-display text-3xl text-primary mb-6">International Expertise</h2>
+              <p className="text-gold text-sm tracking-[0.2em] uppercase font-body mb-4">{t(homepage.credentialsLabel)}</p>
+              <h2 className="font-display text-3xl text-primary mb-6">{t(homepage.credentialsTitle)}</h2>
               <p className="text-foreground/70 font-body leading-relaxed mb-6">
-                Dr. Speth completed her specialist training in Switzerland and a Royal College–approved 
-                fellowship in rhinology at Charing Cross Hospital, Imperial College London. She serves on the 
-                Executive Committee of the European Rhinologic Society and chairs its Educational Committee.
+                {t(homepage.credentialsText)}
               </p>
               <Link to="/about" className="text-accent font-body font-medium text-sm hover:text-accent/80 transition-colors">
-                View full academic profile →
+                {t(homepage.viewProfile)}
               </Link>
             </AnimatedSection>
             <AnimatedSection delay={0.15}>
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { num: "15+", label: "Years Experience" },
+                  { num: "15+", label: t(homepage.yearsExp) },
                   { num: "TUM", label: "Technical University Munich" },
                   { num: "ERS", label: "Executive Committee" },
                   { num: "UK", label: "Imperial College Fellowship" },
@@ -139,22 +187,24 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Instagram */}
+      <InstagramFeed />
+
       {/* CTA */}
       <section className="py-20 lg:py-28 bg-primary">
         <div className="container mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection>
             <h2 className="font-display text-3xl lg:text-4xl text-primary-foreground mb-4">
-              Schedule Your Consultation
+              {t(homepage.ctaTitle)}
             </h2>
             <p className="text-primary-foreground/60 font-body max-w-xl mx-auto mb-8">
-              Take the first step towards improved nasal function and facial harmony. 
-              Dr. Speth offers personalised consultations in Munich.
+              {t(homepage.ctaText)}
             </p>
             <Link
               to="/contact"
               className="inline-block px-10 py-4 bg-accent text-accent-foreground font-body font-medium text-sm rounded-sm hover:bg-accent/90 transition-colors"
             >
-              Book a Consultation
+              {t(general.bookAConsultation)}
             </Link>
           </AnimatedSection>
         </div>
