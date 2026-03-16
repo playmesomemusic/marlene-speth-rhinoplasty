@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import InstagramFeed from "@/components/InstagramFeed";
 import drSpethPortrait from "@/assets/dr-speth-portrait.webp";
+import heroBg from "@/assets/hero-bg.jpg";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { general, homepage, procedureNames, procedureDescriptions } from "@/i18n/translations";
 
@@ -31,7 +32,10 @@ const Index = () => {
     <div className="pt-20">
       {/* Hero */}
       <section className="relative min-h-[85vh] flex items-center bg-primary overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="absolute inset-0">
+          <img src={heroBg} alt="" className="w-full h-full object-cover opacity-10" />
+        </div>
+        <div className="container mx-auto px-6 lg:px-8 relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <AnimatedSection>
             <p className="text-gold text-sm tracking-[0.2em] uppercase font-body mb-6">
               {t(homepage.heroTagline)}
