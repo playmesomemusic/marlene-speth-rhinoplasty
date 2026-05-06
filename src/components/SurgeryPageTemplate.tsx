@@ -37,7 +37,7 @@ const SurgeryPageTemplate = ({ surgeryKey, data }: Props) => {
   const procedure = t(data.procedure);
   const indications = t(data.indications) as string[];
   const diagnostics = t(data.diagnostics) as string[];
-  const results = t(data.results) as string;
+  void data.results;
   const aftercareDo = t(data.aftercareDo) as string[];
   const aftercareAvoid = t(data.aftercareAvoid) as string[];
   const timeline = t(data.timeline) as { title: string; description: string }[];
