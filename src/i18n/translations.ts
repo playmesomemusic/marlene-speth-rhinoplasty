@@ -24,12 +24,13 @@ export const general: Translations = {
   },
   navHome: { en: "Home", de: "Home" },
   navAbout: { en: "About", de: "Über mich" },
-  navNews: { en: "News", de: "Aktuelles" },
+  navNews: { en: "Congresses", de: "Kongresse" },
   navProcedures: { en: "Procedures", de: "Eingriffe" },
-  navReviews: { en: "Reviews", de: "Bewertungen" },
   navContact: { en: "Contact", de: "Kontakt" },
-  bookConsultation: { en: "Book Consultation", de: "Termin vereinbaren" },
-  bookAConsultation: { en: "Book a Consultation", de: "Termin vereinbaren" },
+  bookConsultation: { en: "Get in Touch", de: "Kontakt aufnehmen" },
+  bookAConsultation: { en: "Get in Touch", de: "Kontakt aufnehmen" },
+  linkedinProfile: { en: "LinkedIn Profile", de: "LinkedIn-Profil" },
+  linkedinUrl: { en: "https://www.linkedin.com/in/marlene-speth/", de: "https://www.linkedin.com/in/marlene-speth/" },
   learnMore: { en: "Learn more →", de: "Mehr erfahren →" },
   readMore: { en: "Read more →", de: "Weiterlesen →" },
   procedure: { en: "Procedure", de: "Eingriff" },
@@ -230,7 +231,7 @@ export const aboutPage: Translations = {
 // ─── CONTACT PAGE ───────────────────────────────────────────────────
 export const contactPage: Translations = {
   label: { en: "Contact", de: "Kontakt" },
-  title: { en: "Book a Consultation", de: "Termin vereinbaren" },
+  title: { en: "Get in Touch", de: "Kontakt aufnehmen" },
   intro: {
     en: "Whether you are seeking a consultation for nasal surgery or wish to discuss a complex rhinological condition, Dr. Speth and her team are here to help.",
     de: "Ob Sie eine Beratung für eine Nasenoperation suchen oder eine komplexe rhinologische Erkrankung besprechen möchten — Dr. Speth und ihr Team sind für Sie da.",
@@ -261,14 +262,15 @@ export const contactPage: Translations = {
   enquiryOther: { en: "Other", de: "Sonstiges" },
 };
 
-// ─── NEWS PAGE ──────────────────────────────────────────────────────
+// ─── CONGRESSES PAGE ────────────────────────────────────────────────
 export const newsPage: Translations = {
-  label: { en: "News & Blog", de: "Aktuelles & Blog" },
-  title: { en: "Latest Updates", de: "Neueste Beiträge" },
+  label: { en: "Academic Activity", de: "Akademische Aktivität" },
+  title: { en: "Congresses & Meetings", de: "Kongresse & Tagungen" },
   intro: {
-    en: "Insights, research updates, and news from the world of rhinology and facial plastic surgery.",
-    de: "Einblicke, Forschungsupdates und Neuigkeiten aus der Welt der Rhinologie und plastischen Gesichtschirurgie.",
+    en: "An overview of the international congresses, symposia, and scientific meetings Dr. Speth has attended as a speaker, faculty member, or delegate.",
+    de: "Ein Überblick über internationale Kongresse, Symposien und wissenschaftliche Tagungen, an denen Dr. Speth als Referentin, Faculty-Mitglied oder Delegierte teilgenommen hat.",
   },
+  visitWebsite: { en: "Visit congress website →", de: "Kongress-Website besuchen →" },
 };
 
 // ─── REVIEWS PAGE ───────────────────────────────────────────────────
@@ -296,6 +298,12 @@ export const footer: Translations = {
   imprint: { en: "Imprint", de: "Impressum" },
   privacy: { en: "Privacy Policy", de: "Datenschutz" },
   rights: { en: "All rights reserved.", de: "Alle Rechte vorbehalten." },
+  getInTouchTitle: { en: "Get in Touch", de: "Kontakt aufnehmen" },
+  getInTouchText: {
+    en: "For consultation enquiries or professional collaboration, please reach out directly.",
+    de: "Für Beratungsanfragen oder berufliche Zusammenarbeit nehmen Sie bitte direkt Kontakt auf.",
+  },
+  linkedin: { en: "LinkedIn", de: "LinkedIn" },
 };
 
 // ─── SURGERY PAGE DATA ──────────────────────────────────────────────

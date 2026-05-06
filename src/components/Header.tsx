@@ -25,7 +25,6 @@ const Header = () => {
     { label: t(general.navAbout), path: "/about" },
     { label: t(general.navNews), path: "/news" },
     { label: t(general.navProcedures), children: procedureLinks },
-    { label: t(general.navReviews), path: "/reviews" },
     { label: t(general.navContact), path: "/contact" },
   ];
 
