@@ -10,6 +10,7 @@ import About from "./pages/About";
 import News from "./pages/News";
 
 import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
 import SurgeryPage from "./pages/SurgeryPage";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
@@ -40,6 +41,7 @@ const App = () => (
               <Route path="/news" element={<News />} />
               
               <Route path="/contact" element={<Contact />} />
+              <Route path="/privacy" element={<Privacy />} />
               <Route path="/septorhinoplasty" element={<SurgeryPage surgeryKey="septorhinoplasty" />} />
               <Route path="/septoplasty" element={<SurgeryPage surgeryKey="septoplasty" />} />
               <Route path="/sinus-surgery" element={<SurgeryPage surgeryKey="sinusSurgery" />} />

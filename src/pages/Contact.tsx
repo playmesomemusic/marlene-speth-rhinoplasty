@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Mail, Phone, Linkedin } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -8,14 +9,23 @@ const Contact = () => {
   const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [privacyError, setPrivacyError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    let valid = true;
     if (!email.trim()) {
       setEmailError(t({ en: "Email is required.", de: "E-Mail ist erforderlich." }) as string);
-      return;
+      valid = false;
     }
+    if (!privacyAccepted) {
+      setPrivacyError(t(contactPage.privacyError) as string);
+      valid = false;
+    }
+    if (!valid) return;
     setEmailError("");
+    setPrivacyError("");
   };
 
   return (
@@ -107,6 +117,31 @@ const Contact = () => {
                 <div>
                   <label className="block text-sm font-body font-medium text-foreground mb-2">{t(contactPage.formMessage)}</label>
                   <textarea rows={4} className="w-full px-4 py-3 border border-input rounded-sm text-sm font-body bg-background focus:outline-none focus:ring-1 focus:ring-ring resize-none" placeholder={t(contactPage.formMessagePlaceholder) as string} />
+                </div>
+                <div>
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={privacyAccepted}
+                      onChange={(e) => {
+                        setPrivacyAccepted(e.target.checked);
+                        if (privacyError && e.target.checked) setPrivacyError("");
+                      }}
+                      required
+                      aria-required="true"
+                      className="mt-1 h-4 w-4 rounded border-input text-primary focus:ring-1 focus:ring-ring"
+                    />
+                    <span className="text-sm font-body text-foreground/80 leading-relaxed">
+                      {t(contactPage.privacyConsent)}{" "}
+                      <Link to="/privacy" className="text-accent hover:text-accent/80 underline">
+                        {t(contactPage.privacyConsentLink)}
+                      </Link>
+                      {t(contactPage.privacyConsentSuffix)} <span className="text-destructive">*</span>
+                    </span>
+                  </label>
+                  {privacyError && (
+                    <p className="mt-2 text-xs text-destructive font-body">{privacyError}</p>
+                  )}
                 </div>
                 <button
                   type="submit"

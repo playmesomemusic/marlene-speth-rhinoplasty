@@ -238,25 +238,7 @@ const Index = () => {
       {/* Instagram */}
       <InstagramFeed />
 
-      {/* CTA */}
-      <section className="py-20 lg:py-28 bg-primary">
-        <div className="container mx-auto px-6 lg:px-8 text-center">
-          <AnimatedSection>
-            <h2 className="font-display text-3xl lg:text-4xl text-primary-foreground mb-4">
-              {t(homepage.ctaTitle)}
-            </h2>
-            <p className="text-primary-foreground/60 font-body max-w-xl mx-auto mb-8">
-              {t(homepage.ctaText)}
-            </p>
-            <Link
-              to="/contact"
-              className="inline-block px-10 py-4 bg-accent text-accent-foreground font-body font-medium text-sm rounded-sm hover:bg-accent/90 transition-colors"
-            >
-              {t(general.bookAConsultation)}
-            </Link>
-          </AnimatedSection>
-        </div>
-      </section>
+      {/* Footer "Get in Touch" band serves as the closing CTA */}
     </div>
   );
 };
