@@ -8,7 +8,7 @@ import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import News from "./pages/News";
-import Reviews from "./pages/Reviews";
+
 import Contact from "./pages/Contact";
 import SurgeryPage from "./pages/SurgeryPage";
 import NotFound from "./pages/NotFound";
@@ -38,7 +38,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
               <Route path="/news" element={<News />} />
-              <Route path="/reviews" element={<Reviews />} />
+              
               <Route path="/contact" element={<Contact />} />
               <Route path="/septorhinoplasty" element={<SurgeryPage surgeryKey="septorhinoplasty" />} />
               <Route path="/septoplasty" element={<SurgeryPage surgeryKey="septoplasty" />} />
