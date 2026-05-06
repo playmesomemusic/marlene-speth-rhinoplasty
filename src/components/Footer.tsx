@@ -19,16 +19,26 @@ const Footer = () => {
 
   return (
     <footer className="bg-primary text-primary-foreground">
-      {/* Main footer */}
-      <div className="container mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div>
+      {/* Main footer — single cohesive grid */}
+      <div className="container mx-auto px-6 lg:px-8 py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
+          {/* Brand */}
+          <div className="lg:col-span-4">
             <h3 className="font-display text-xl mb-4">{t(general.siteTitle)}</h3>
-            <p className="text-sm text-primary-foreground/70 leading-relaxed font-body">
+            <p className="text-sm text-primary-foreground/70 leading-relaxed font-body mb-6">
               {t(footer.description)}
             </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground font-body font-medium text-sm rounded-sm hover:bg-accent/90 transition-colors"
+            >
+              {t(general.bookAConsultation)}
+              <span aria-hidden>→</span>
+            </Link>
           </div>
-          <div>
+
+          {/* Procedures */}
+          <div className="lg:col-span-4">
             <h4 className="font-display text-lg mb-4">{t(footer.proceduresTitle)}</h4>
             <ul className="space-y-2 text-sm font-body text-primary-foreground/70">
               {procedureLinks.map((proc) => (
@@ -40,19 +50,10 @@ const Footer = () => {
               ))}
             </ul>
           </div>
-        </div>
-      </div>
 
-      {/* Get in Touch — separate band */}
-      <div className="border-t border-primary-foreground/15 bg-primary/95">
-        <div className="container mx-auto px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            <div>
-              <h4 className="font-display text-2xl mb-3">{t(footer.getInTouchTitle)}</h4>
-              <p className="text-sm text-primary-foreground/70 font-body leading-relaxed">
-                {t(footer.getInTouchText)}
-              </p>
-            </div>
+          {/* Get in touch */}
+          <div className="lg:col-span-4">
+            <h4 className="font-display text-lg mb-4">{t(footer.getInTouchTitle)}</h4>
             <ul className="space-y-3 text-sm font-body text-primary-foreground/80">
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-gold flex-shrink-0" />
@@ -74,14 +75,6 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
-            <div className="flex md:justify-end">
-              <Link
-                to="/contact"
-                className="inline-block px-6 py-3 bg-accent text-accent-foreground font-body font-medium text-sm rounded-sm hover:bg-accent/90 transition-colors"
-              >
-                {t(general.bookAConsultation)} →
-              </Link>
-            </div>
           </div>
         </div>
       </div>
