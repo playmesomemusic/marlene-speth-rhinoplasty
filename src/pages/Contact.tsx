@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import { Mail, Phone, Linkedin } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -8,14 +9,23 @@ const Contact = () => {
   const { t } = useLanguage();
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [privacyError, setPrivacyError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    let valid = true;
     if (!email.trim()) {
       setEmailError(t({ en: "Email is required.", de: "E-Mail ist erforderlich." }) as string);
-      return;
+      valid = false;
     }
+    if (!privacyAccepted) {
+      setPrivacyError(t(contactPage.privacyError) as string);
+      valid = false;
+    }
+    if (!valid) return;
     setEmailError("");
+    setPrivacyError("");
   };
 
   return (
