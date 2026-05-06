@@ -47,7 +47,7 @@ const Privacy = () => {
                   3. {language === "de" ? "Datenerfassung auf dieser Website" : "Data Collection on this Website"}
                 </h2>
                 <h3 className="font-display text-lg text-primary mt-4 mb-2">
-                  a) {language === "de" ? "Kontaktformular" : "Contact form"}
+                  {language === "de" ? "Kontaktformular" : "Contact form"}
                 </h3>
                 <p>
                   {language === "de"
