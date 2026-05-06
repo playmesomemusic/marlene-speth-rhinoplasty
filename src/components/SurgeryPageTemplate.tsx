@@ -2,7 +2,7 @@ import AnimatedSection from "./AnimatedSection";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { surgeryLabels, general, type SurgeryContent } from "@/i18n/translations";
-import { Check, AlertTriangle, ImageIcon, ClipboardList, Stethoscope, HeartPulse, CalendarCheck } from "lucide-react";
+import { Check, AlertTriangle, ClipboardList, Stethoscope, HeartPulse, CalendarCheck } from "lucide-react";
 
 // Procedure images
 import septorhinoplastyImg from "@/assets/procedures/septorhinoplasty.jpg";
