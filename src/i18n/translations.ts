@@ -72,10 +72,10 @@ export const homepage: Translations = {
     de: "Dr. Speth absolvierte ihre Facharztausbildung in der Schweiz und ein vom Royal College anerkanntes Fellowship in Rhinologie am Charing Cross Hospital, Imperial College London. Sie ist Mitglied des Vorstands der European Rhinologic Society und leitet deren Bildungskomitee.",
   },
   viewProfile: { en: "View full academic profile →", de: "Vollständiges Profil ansehen →" },
-  ctaTitle: { en: "Schedule Your Consultation", de: "Vereinbaren Sie Ihren Termin" },
+  ctaTitle: { en: "Get in Touch", de: "Kontakt aufnehmen" },
   ctaText: {
-    en: "Take the first step towards improved nasal function and facial harmony. Dr. Speth offers personalised consultations in Munich.",
-    de: "Machen Sie den ersten Schritt zu verbesserter Nasenfunktion und Gesichtsharmonie. Dr. Speth bietet persönliche Beratungsgespräche in München an.",
+    en: "Have a question about nasal function, facial harmony, or a complex rhinological case? Reach out to Dr. Speth and her team in Munich.",
+    de: "Haben Sie eine Frage zur Nasenfunktion, Gesichtsharmonie oder zu einem komplexen rhinologischen Fall? Wenden Sie sich an Dr. Speth und ihr Team in München.",
   },
   yearsExp: { en: "Years Experience", de: "Jahre Erfahrung" },
   instagramTitle: { en: "Follow on Instagram", de: "Folgen Sie auf Instagram" },
@@ -157,10 +157,10 @@ export const surgeryLabels: Translations = {
   whatToExpect: { en: "What to Expect", de: "Was Sie erwartet" },
   recovery: { en: "Recovery", de: "Genesung" },
   faq: { en: "Frequently Asked Questions", de: "Häufig gestellte Fragen" },
-  ctaTitle: { en: "Ready to Take the Next Step?", de: "Bereit für den nächsten Schritt?" },
+  ctaTitle: { en: "Have a Question?", de: "Haben Sie eine Frage?" },
   ctaText: {
-    en: "Schedule a personal consultation with Dr. Speth to discuss your individual needs and treatment options.",
-    de: "Vereinbaren Sie ein persönliches Beratungsgespräch mit Dr. Speth, um Ihre individuellen Bedürfnisse und Behandlungsmöglichkeiten zu besprechen.",
+    en: "Get in touch with Dr. Speth to discuss your individual situation and learn more about possible treatment options.",
+    de: "Nehmen Sie Kontakt zu Dr. Speth auf, um Ihre individuelle Situation zu besprechen und mehr über mögliche Behandlungsoptionen zu erfahren.",
   },
   indications: { en: "Indications & Symptoms", de: "Indikationen & Symptome" },
   indicationsIntro: { en: "When is this procedure recommended?", de: "Wann wird dieser Eingriff empfohlen?" },
@@ -233,8 +233,8 @@ export const contactPage: Translations = {
   label: { en: "Contact", de: "Kontakt" },
   title: { en: "Get in Touch", de: "Kontakt aufnehmen" },
   intro: {
-    en: "Whether you are seeking a consultation for nasal surgery or wish to discuss a complex rhinological condition, Dr. Speth and her team are here to help.",
-    de: "Ob Sie eine Beratung für eine Nasenoperation suchen oder eine komplexe rhinologische Erkrankung besprechen möchten — Dr. Speth und ihr Team sind für Sie da.",
+    en: "Whether you have a question about nasal surgery or wish to discuss a complex rhinological condition, Dr. Speth and her team look forward to hearing from you.",
+    de: "Ob Sie eine Frage zur Nasenchirurgie haben oder eine komplexe rhinologische Erkrankung besprechen möchten — Dr. Speth und ihr Team freuen sich auf Ihre Nachricht.",
   },
   locationTitle: { en: "Location", de: "Standort" },
   locationAddress: {
@@ -258,8 +258,24 @@ export const contactPage: Translations = {
   formMessage: { en: "Message", de: "Nachricht" },
   formMessagePlaceholder: { en: "Tell us about your concern...", de: "Beschreiben Sie Ihr Anliegen..." },
   formSubmit: { en: "Send Enquiry", de: "Anfrage senden" },
-  enquiryGeneral: { en: "General Consultation", de: "Allgemeine Beratung" },
+  enquiryGeneral: { en: "General Enquiry", de: "Allgemeine Anfrage" },
   enquiryOther: { en: "Other", de: "Sonstiges" },
+  privacyConsent: {
+    en: "I have read and accept the",
+    de: "Ich habe die",
+  },
+  privacyConsentLink: {
+    en: "Privacy Policy",
+    de: "Datenschutzerklärung",
+  },
+  privacyConsentSuffix: {
+    en: ".",
+    de: " gelesen und akzeptiere sie.",
+  },
+  privacyError: {
+    en: "Please accept the privacy policy to continue.",
+    de: "Bitte akzeptieren Sie die Datenschutzerklärung, um fortzufahren.",
+  },
 };
 
 // ─── CONGRESSES PAGE ────────────────────────────────────────────────
