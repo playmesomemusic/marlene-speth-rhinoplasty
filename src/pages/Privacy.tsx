@@ -150,7 +150,7 @@ const Privacy = () => {
                 <ul className="list-disc list-inside mt-2 space-y-1">
                   <li>{language === "de" ? "Recht auf Auskunft über Ihre gespeicherten Daten" : "Right to information about your stored data"}</li>
                   <li>{language === "de" ? "Recht auf Berichtigung unrichtiger Daten" : "Right to rectification of inaccurate data"}</li>
-                  <li>{language === "de" ? "Recht auf Löschung („Recht auf Vergessenwerden")" : "Right to erasure ('right to be forgotten')"}</li>
+                  <li>{language === "de" ? 'Recht auf Löschung („Recht auf Vergessenwerden")' : "Right to erasure ('right to be forgotten')"}</li>
                   <li>{language === "de" ? "Recht auf Einschränkung der Verarbeitung" : "Right to restriction of processing"}</li>
                   <li>{language === "de" ? "Recht auf Datenübertragbarkeit" : "Right to data portability"}</li>
                   <li>{language === "de" ? "Recht auf Widerruf Ihrer Einwilligung jederzeit" : "Right to withdraw consent at any time"}</li>
