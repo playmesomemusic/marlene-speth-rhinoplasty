@@ -155,40 +155,6 @@ const SurgeryPageTemplate = ({ surgeryKey, data }: Props) => {
         </div>
       </section>
 
-      {/* Expected Results */}
-      <section className="py-16 lg:py-24 bg-section-alt">
-        <div className="container mx-auto px-6 lg:px-8 max-w-3xl">
-          <AnimatedSection>
-            <h2 className="font-display text-3xl text-primary mb-6">{t(surgeryLabels.results)}</h2>
-            <p className="text-foreground/80 font-body leading-relaxed">{results}</p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Before/After Gallery Placeholder */}
-      <section className="py-16 lg:py-24">
-        <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
-          <AnimatedSection>
-            <h2 className="font-display text-3xl text-primary mb-6">{t(surgeryLabels.beforeAfterTitle)}</h2>
-            <p className="text-foreground/80 font-body leading-relaxed mb-8">{t(surgeryLabels.beforeAfterText)}</p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.1}>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="aspect-[3/4] bg-muted rounded-sm flex flex-col items-center justify-center border border-border">
-                  <ImageIcon className="text-muted-foreground mb-2" size={32} />
-                  <span className="text-muted-foreground font-body text-xs">Coming soon</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-muted-foreground font-body text-sm mt-4 text-center italic">
-              {t(surgeryLabels.beforeAfterPlaceholder)}
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Consultation Process */}
       <section className="py-16 lg:py-24 bg-section-alt">
         <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
           <AnimatedSection>

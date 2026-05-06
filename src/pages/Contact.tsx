@@ -1,10 +1,22 @@
+import { useState } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, Linkedin } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
-import { contactPage, procedureNames } from "@/i18n/translations";
+import { contactPage, procedureNames, general } from "@/i18n/translations";
 
 const Contact = () => {
   const { t } = useLanguage();
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) {
+      setEmailError(t({ en: "Email is required.", de: "E-Mail ist erforderlich." }) as string);
+      return;
+    }
+    setEmailError("");
+  };
 
   return (
     <div className="pt-24">
@@ -22,15 +34,6 @@ const Contact = () => {
 
               <div className="space-y-6">
                 <div className="flex gap-4 items-start">
-                  <MapPin className="text-accent mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <h3 className="font-display text-lg text-primary mb-1">{t(contactPage.locationTitle)}</h3>
-                    <p className="text-foreground/70 font-body text-sm whitespace-pre-line">
-                      {t(contactPage.locationAddress)}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-4 items-start">
                   <Phone className="text-accent mt-1 flex-shrink-0" size={20} />
                   <div>
                     <h3 className="font-display text-lg text-primary mb-1">{t(contactPage.phoneTitle)}</h3>
@@ -45,26 +48,46 @@ const Contact = () => {
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
-                  <Clock className="text-accent mt-1 flex-shrink-0" size={20} />
+                  <Linkedin className="text-accent mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <h3 className="font-display text-lg text-primary mb-1">{t(contactPage.hoursTitle)}</h3>
-                    <p className="text-foreground/70 font-body text-sm whitespace-pre-line">
-                      {t(contactPage.hours)}
-                    </p>
+                    <h3 className="font-display text-lg text-primary mb-1">{t(general.linkedinProfile)}</h3>
+                    <a
+                      href={t(general.linkedinUrl) as string}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:text-accent/80 transition-colors font-body text-sm"
+                    >
+                      linkedin.com/in/marlene-speth
+                    </a>
                   </div>
                 </div>
               </div>
             </AnimatedSection>
 
             <AnimatedSection delay={0.15}>
-              <form className="bg-card border border-border rounded-sm p-8 space-y-6">
+              <form onSubmit={handleSubmit} noValidate className="bg-card border border-border rounded-sm p-8 space-y-6">
                 <div>
                   <label className="block text-sm font-body font-medium text-foreground mb-2">{t(contactPage.formName)}</label>
-                  <input type="text" className="w-full px-4 py-3 border border-input rounded-sm text-sm font-body bg-background focus:outline-none focus:ring-1 focus:ring-ring" placeholder={t(contactPage.formNamePlaceholder)} />
+                  <input type="text" className="w-full px-4 py-3 border border-input rounded-sm text-sm font-body bg-background focus:outline-none focus:ring-1 focus:ring-ring" placeholder={t(contactPage.formNamePlaceholder) as string} />
                 </div>
                 <div>
-                  <label className="block text-sm font-body font-medium text-foreground mb-2">{t(contactPage.formEmail)}</label>
-                  <input type="email" className="w-full px-4 py-3 border border-input rounded-sm text-sm font-body bg-background focus:outline-none focus:ring-1 focus:ring-ring" placeholder="your@email.com" />
+                  <label className="block text-sm font-body font-medium text-foreground mb-2">
+                    {t(contactPage.formEmail)} <span className="text-destructive">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    aria-required="true"
+                    value={email}
+                    onChange={(e) => { setEmail(e.target.value); if (emailError) setEmailError(""); }}
+                    className={`w-full px-4 py-3 border rounded-sm text-sm font-body bg-background focus:outline-none focus:ring-1 focus:ring-ring ${
+                      emailError ? "border-destructive" : "border-input"
+                    }`}
+                    placeholder="your@email.com"
+                  />
+                  {emailError && (
+                    <p className="mt-2 text-xs text-destructive font-body">{emailError}</p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-body font-medium text-foreground mb-2">{t(contactPage.formPhone)}</label>
@@ -83,7 +106,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-body font-medium text-foreground mb-2">{t(contactPage.formMessage)}</label>
-                  <textarea rows={4} className="w-full px-4 py-3 border border-input rounded-sm text-sm font-body bg-background focus:outline-none focus:ring-1 focus:ring-ring resize-none" placeholder={t(contactPage.formMessagePlaceholder)} />
+                  <textarea rows={4} className="w-full px-4 py-3 border border-input rounded-sm text-sm font-body bg-background focus:outline-none focus:ring-1 focus:ring-ring resize-none" placeholder={t(contactPage.formMessagePlaceholder) as string} />
                 </div>
                 <button
                   type="submit"
