@@ -99,12 +99,22 @@ const About = () => {
             <p className="text-primary-foreground/60 font-body max-w-xl mx-auto mb-8">
               {t(aboutPage.ctaText)}
             </p>
-            <Link
-              to="/contact"
-              className="inline-block px-8 py-3 bg-accent text-accent-foreground font-body font-medium rounded-sm hover:bg-accent/90 transition-colors"
-            >
-              {t(general.navContact)}
-            </Link>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                to="/contact"
+                className="inline-block px-8 py-3 bg-accent text-accent-foreground font-body font-medium rounded-sm hover:bg-accent/90 transition-colors"
+              >
+                {t(general.navContact)}
+              </Link>
+              <a
+                href={t(general.linkedinUrl) as string}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-3 border border-primary-foreground/30 text-primary-foreground font-body font-medium rounded-sm hover:border-primary-foreground/60 transition-colors"
+              >
+                {t(general.linkedinProfile)}
+              </a>
+            </div>
           </AnimatedSection>
         </div>
       </section>
