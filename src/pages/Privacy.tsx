@@ -38,7 +38,7 @@ const Privacy = () => {
                   2. {language === "de" ? "Verantwortliche Stelle" : "Responsible Party"}
                 </h2>
                 <p className="whitespace-pre-line">
-                  {`Dr. med. Marlene Speth\n[Adresse]\n[Telefonnummer]\n[E-Mail-Adresse]`}
+                  {`Dr. med. Marlene Speth\nKranzhornweg 1\n83064 Raubling\n${language === "de" ? "Deutschland" : "Germany"}`}
                 </p>
               </section>
 
