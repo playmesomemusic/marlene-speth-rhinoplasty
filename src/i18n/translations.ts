@@ -308,8 +308,8 @@ export const footer: Translations = {
   proceduresTitle: { en: "Procedures", de: "Eingriffe" },
   contactTitle: { en: "Contact", de: "Kontakt" },
   address: {
-    en: "Private Practice\nMusterstraße 1\n80333 München",
-    de: "Privatpraxis\nMusterstraße 1\n80333 München",
+    en: "Dr. med. Marlene Speth\nKranzhornweg 1\n83064 Raubling\nGermany",
+    de: "Dr. med. Marlene Speth\nKranzhornweg 1\n83064 Raubling",
   },
   imprint: { en: "Imprint", de: "Impressum" },
   privacy: { en: "Privacy Policy", de: "Datenschutz" },
